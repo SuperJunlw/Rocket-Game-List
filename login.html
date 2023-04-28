@@ -3,19 +3,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="./login.css" />
+    <link rel="stylesheet" href="login.css" />
   </head>
   <body>
     
     <!--NAV BAR HELP: https://www.youtube.com/watch?v=oLgtucwjVII -->
     <nav>
         
-        <label class="logo">Rocket Game List</label>
-        <ul>
-          <li><a href="#">Search</a></li>
-          <li><a href="#">List</a></li>
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Sign Up</a></li>
+
+        <div class="logo">Rocket Game List</label>
+        <ul class= "nav-links">
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        
+          <div class = "menu">
+            <ul>
+              <li><a href="#">Search</a></li>
+              <li><a href="#">List</a></li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
         </ul>
     </nav>
 
