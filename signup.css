@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: Futura;
+    font-family: 'Trebuchet MS';
 }
 
 body {
@@ -17,11 +17,11 @@ nav{
   height: 80px;
   width: 100%;
   }
-label.logo{
+.logo{
     color: black;
-    font-size: 35px;
+    font-size: 30px;
     line-height: 80px;
-    padding: 0 100px;
+    padding: 0 25px;
     font-weight: bold;
   }
 nav ul{
@@ -45,6 +45,59 @@ a.active,a:hover{
     color: #fff;
     transition: .5s;
 }
+
+
+/* RESPONSIVE NAVBAR MENU STARTS */
+
+
+input[type=checkbox] {
+    display: none;
+    } 
+    
+    /* HAMBURGER MENU */
+    .hamburger {
+    display: none;
+    font-size: 36px;
+    user-select: none;
+    }
+  
+    
+  
+    /* APPLYING MEDIA QUERIES */
+  @media (max-width: 790px) {
+    .menu {
+        display:none;
+        position: absolute;
+        background-color:aquamarine;
+        right: 0;
+        left: 0;
+    }
+    
+    .menu li:hover {
+    display: inline-block;
+    transition: 0.3s ease;
+    }
+    
+    .menu li + li {
+    margin-top: 12px;
+    }
+    
+    input[type=checkbox]:checked ~ .menu {
+    display: block;
+    }
+    
+    .hamburger {
+    display: block;
+    
+    }
+  
+    .hamburger:hover{
+      color: #fff;
+    }
+  
+    
+  }
+
 
 .SignUpForm {
     width: 500px;;
@@ -72,7 +125,7 @@ a.active,a:hover{
 
 .SignUpForm input {
     font-size: 15px;
-    width: 100%;
+    width: 96%;
     padding: 15px 10px;
     border: 0;
     outline: none;
