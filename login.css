@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: Futura;
+    font-family: 'Trebuchet MS';
 }
 
 body {
@@ -17,33 +17,84 @@ nav{
   height: 80px;
   width: 100%;
   }
-  label.logo{
+.logo{
     color: black;
-    font-size: 35px;
+    font-size: 30px;
     line-height: 80px;
-    padding: 0 100px;
+    padding: 0 25px;
     font-weight: bold;
   }
-  nav ul{
+nav ul{
     float: right;
     margin-right: 20px;
   }
-  nav ul li{
+nav ul li{
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
   }
-  nav ul li a{
+nav ul li a{
     color: black;
     font-size: 17px;
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
   }
-  a.active,a:hover{
+a.active,a:hover{
     background: black;
     color: #fff;
     transition: .5s;
+}
+/* RESPONSIVE NAVBAR MENU STARTS */
+
+
+input[type=checkbox] {
+  display: none;
+  } 
+  
+  /* HAMBURGER MENU */
+  .hamburger {
+  display: none;
+  font-size: 36px;
+  user-select: none;
+  }
+
+  
+
+  /* APPLYING MEDIA QUERIES */
+@media (max-width: 790px) {
+  .menu {
+  display:none;
+  position: absolute;
+  background-color:aquamarine;
+  right: 0;
+  left: 0;
+  }
+ 
+  
+  .menu li:hover {
+  display: inline-block;
+  transition: 0.3s ease;
+  }
+  
+  .menu li + li {
+  margin-top: 12px;
+  }
+  
+  input[type=checkbox]:checked ~ .menu {
+  display: block;
+  }
+  
+  .hamburger {
+  display: block;
+  
+  }
+
+  .hamburger:hover{
+    color: #fff;
+  }
+
+  
 }
 
 .LoginForm {
@@ -72,8 +123,8 @@ nav{
 
 .LoginForm input {
     font-size: 15px;
-    width: 100%;
-    padding: 15px 10px;
+    width: 96%;
+    padding: 15px 15px;
     border: 0;
     outline: none;
     border-radius: 5px;
