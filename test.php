@@ -9,6 +9,7 @@ if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
 }
 
 */
+
 $servername = "cos-cs106.science.sjsu.edu";
 $username = "rocketuser";
 $password = "WhVL##77JK";
@@ -24,14 +25,7 @@ if ($conn->connect_error)
 
 }
 
-function validate_login()
-{
 
-    //select 
-
-    //if a query is returned, the login is successful
-
-}
 
 
 function session_token()
