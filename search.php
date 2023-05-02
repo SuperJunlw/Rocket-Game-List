@@ -1,9 +1,9 @@
 <?php
     function search()
     {
-        $searchName = $_POST["name"];
+        $searchName = $_POST["searchname"];
 
-        $searchName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $searchName = filter_input(INPUT_POST, 'searchname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $servername = "cos-cs106.science.sjsu.edu";
         $dbusername = "rocketuser";
