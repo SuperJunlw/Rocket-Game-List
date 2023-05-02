@@ -98,6 +98,17 @@ input[type=checkbox] {
   
 }
 
+.title{
+  width: 100%;
+  color: #fff;
+  font-size: 25;
+  text-align: center;
+  display: block;
+  padding-top: 50px;
+  margin-top: 45px;
+
+}
+
 .searchBar {
     width: 500px;;
     top: 25%;
@@ -106,7 +117,7 @@ input[type=checkbox] {
     position: absolute;
     color: #fff;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 100px;
     
     
     
@@ -154,13 +165,25 @@ input[type=checkbox] {
 .card h2{
   padding: 10px;
 }
-.card a{
+.ButtonForm button{
+  width: 150px;
+  margin-left: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: black;
   color: white;
-  padding: 15px 20px;
-  display: block;
-  text-align: center;
-  margin: 20px 50px;
+  font-size: 15px;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  outline: 0;
+     
+}
+
+.ButtonForm button:hover{
+  background-color: aquamarine;
+  color:black;
+  transition: 1s;
 }
 
 .card:hover{
@@ -171,11 +194,7 @@ input[type=checkbox] {
   cursor:default;
 }
 
-.card a:hover{
-  background-color: aquamarine;
-  color:black;
-  
-}
+
 
 .card1{
   background-image: url(./placeholder.jpg);
