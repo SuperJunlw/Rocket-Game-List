@@ -1,0 +1,182 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS';
+}
+
+body {
+    background: url(./background.jpeg) ;
+    background-size: cover;
+}
+
+
+
+
+nav{
+  background: aquamarine;
+  height: 80px;
+  width: 100%;
+  }
+.logo{
+    color: black;
+    font-size: 30px;
+    line-height: 80px;
+    padding: 0 25px;
+    font-weight: bold;
+  }
+nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+nav ul li a{
+    color: black;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+a.active,a:hover{
+    background: black;
+    color: #fff;
+    transition: .5s;
+}
+/* RESPONSIVE NAVBAR MENU STARTS */
+
+
+input[type=checkbox] {
+  display: none;
+  } 
+  
+  /* HAMBURGER MENU */
+  .hamburger {
+  display: none;
+  font-size: 36px;
+  user-select: none;
+  }
+
+  
+
+  /* APPLYING MEDIA QUERIES */
+@media (max-width: 790px) {
+  .menu {
+  display:none;
+  position: absolute;
+  background-color:aquamarine;
+  right: 0;
+  left: 0;
+  
+  }
+ 
+  
+  .menu li:hover {
+  display: inline-block;
+  transition: 0.3s ease;
+  }
+  
+  .menu li + li {
+  margin-top: 12px;
+  }
+  
+  input[type=checkbox]:checked ~ .menu {
+  display: block;
+  }
+  
+  .hamburger {
+  display: block;
+  
+  }
+
+  .hamburger:hover{
+    color: #fff;
+  }
+
+  
+}
+
+.searchBar {
+    width: 500px;;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    color: #fff;
+    margin: auto;
+    margin-top: 10px;
+    
+    
+    
+
+}
+
+.searchBar input {
+    
+    font-size: 15px;
+    width: 100%;
+    padding: 15px 15px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform: translate(0, 175px);
+  flex-wrap: wrap;
+}
+
+.card{
+  background: white;
+  width: 270px;
+  margin: 10px;
+  border-radius: 15px;
+   
+}
+
+.card-image{
+  height: 170px;
+  margin-bottom: 15px;
+  background-size: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+.card p{
+  padding: 10px;
+}
+.card h2{
+  padding: 10px;
+}
+.card a{
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  display: block;
+  text-align: center;
+  margin: 20px 50px;
+}
+
+.card:hover{
+  background-color: rgb(63, 63, 63);
+  color: white;
+  transform: scale(1.03);
+  transition: all 1s ease;
+  cursor:default;
+}
+
+.card a:hover{
+  background-color: aquamarine;
+  color:black;
+  
+}
+
+.card1{
+  background-image: url(./placeholder.jpg);
+}
