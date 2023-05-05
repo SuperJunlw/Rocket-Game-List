@@ -40,6 +40,24 @@ nav ul li a{
     border-radius: 3px;
     text-transform: uppercase;
   }
+
+  #logout{
+    display: none;
+    background-color: #fff;
+    color: black;
+    font-size: 17px;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    outline: 0;
+  }
+
+  #logout:hover{
+    background-color: black;
+    color:#fff;
+    transition: 0.3s;
+
+  }
 a.active,a:hover{
     background: black;
     color: #fff;
@@ -48,7 +66,7 @@ a.active,a:hover{
 /* RESPONSIVE NAVBAR MENU STARTS */
 
 
-input[type=checkbox] {
+input[id="checkbox_toggle"] {
   display: none;
   } 
   
@@ -161,6 +179,10 @@ input[type=checkbox] {
     background-color: aquamarine;
     color:black;
     transition: 1s;
+}
+
+.checkbox{
+  text-align: center;
 }
 
 
