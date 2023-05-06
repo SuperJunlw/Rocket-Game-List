@@ -1,12 +1,14 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
-    <link rel="stylesheet" href="search.css" />
+    <!-- <script type = "text/javascript" src="search.js"></script> -->
+    <!-- <link rel="stylesheet" href="search.css" /> -->
   </head>
   <body>
-    
+
     <!--NAV BAR HELP: https://www.youtube.com/watch?v=oLgtucwjVII -->
     <nav>
         <div class="logo">Rocket Game List</label>
@@ -24,56 +26,24 @@
         </ul>
     </nav>
 
-    <div class = "title">
-      <h1>Search</h1>
-  </div>
-
     <div class = "searchBar">
-      <input type = "text" placeholder="Search your game">     
+      <form action="search.html" method="post" class="search">
+        <label for="searchgame"></label>
+        <input type="text" placeholder="Search.." id="searchgame" name="searchgame">
+        <button type="submit" id="search-button" name="search-button" >Search</button>
+      </form>     
     </div>
 
-    <!--CARD HELP: https://www.youtube.com/watch?v=qXRYMdvq_Dc -->
-    <section class="container">
-      <div class="card">
-        <div class="card-image card1"></div>
-        <h2>Title</h2>
-        <p>This is sample text add the real game description here. This is sample text add the real game description here. This is sample text add the real game description here. This is sample text add the real game description here. </p>
-        <div class="ButtonForm">
-            <form action = '#' method="post">
-                <button>Add to List</button>
-            </form>
-        </div>
-        
-      </div>
+    <script type = "text/javascript" src="search.js">
+      const searchButton = document.getElementById("search-button");
+      searchButton.addEventListener("click", event => {
+        event.preventDefault();
+        getInfos();
+      });
+    </script>
 
-      <div class="card">
-        <div class="card-image"></div>
-        <h2>Title</h2>
-        <p>This is sample text add the real game description here. This is sample text add the real game description here. This is sample text add the real game description here. This is sample text add the real game description here. </p>
-        <div class="ButtonForm">
-            <form action = '#' method="post">
-                <button>Add to List</button>
-            </form>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-image"></div>
-        <h2>Title</h2>
-        <p>This is sample text add the real game description here. This is sample text add the real game description here. This is sample text add the real game description here. This is sample text add the real game description here. </p>
-        <div class="ButtonForm">
-            <form action = '#' method="post">
-                <button>Add to List</button>
-            </form>
-        </div>
-      </div>
-
-
-   
-
-
-    
-    
-    
+    <section id="container" class="container">
+      <!-- <div id="DisplayResults"></div> -->
+    </section>
   </body>
 </html>
