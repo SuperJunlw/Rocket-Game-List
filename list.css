@@ -130,14 +130,13 @@ input[id="checkbox_toggle"] {
 }
 
 .container{
-  width: 100%;
   display: flex;
   justify-content: center;
-  transform: translate(0, 50px);
   flex-wrap: wrap;
 }
 
 .card{
+  flex: 0 0 270px;
   background: white;
   width: 270px;
   margin: 10px;

@@ -23,7 +23,7 @@
         if (mysqli_num_rows($result) > 0) {
             // output data of each row
             while($row = mysqli_fetch_assoc($result)) {
-                echo "Name: " . $row["game_name"]. " - Year: " . $row["game_year"]. " - Genre" . $row["game_genre"].  " - Description: " . $row["game_description"]"<br>";
+                echo "Name: " . $row["game_name"]. " - Year: " . $row["game_year"]. " - Genre" . $row["game_genre"].  " - Description: " . $row["game_description"];
             }
         } 
         else {

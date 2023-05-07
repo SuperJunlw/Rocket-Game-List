@@ -43,22 +43,32 @@ function validate_login()
 
 // Get results
     $result = mysqli_stmt_get_result($stmt);
+    $userinfo = mysqli_fetch_assoc($result);
 
         // Check for empty result set
         if (mysqli_num_rows($result) == 0) {
             echo "Invalid username or password.";
+            mysqli_stmt_close($stmt);
+            mysqli_close($conn);
         } else {
-            echo "Login successful.";
-            // Process user data
-            // ...
+
+            //session start
+            session_start();
+            $_SESSION['user_name'] = $userinfo['user_name'];
+            $_SESSION['logged_in'] = true;
+            header("Location: list.php");
+           // echo "test";
+            
+            //close sql connection and redirect to other page
+            mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+            
+            exit;
         }
     
 
 
 
-// Close prepared statement and database connection
-    mysqli_stmt_close($stmt);
-    mysqli_close($conn);
 
 
 
