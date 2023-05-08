@@ -25,12 +25,13 @@ function getInfos() {
         console.log(game.released);
 
         html += `
-          <div class="card">
-            <div class="card-image"><img src="${game.background_image}"></div>
-            <div class="card-title"><h2>${game.name}</h2></div>
-            <div class = "description"><p>Description: ${game.description}</p></div>
-            <div class="ButtonForm" onclick="addToList(${game.id})"><button>Add to list</button></div>
-          </div>
+        <div class="card">
+          <div class="card-image"><img src="${game.background_image}"></div>
+          <div class="card-title"><h2>${game.name}</h2></div>
+          <div class="genre"><p>Genre: ${genres}</p></div>
+          <div class="release-date"><p>Release Date: ${game.released}</p></div>
+          <div class="ButtonForm" onclick="addToList(${game.id})"><button>Add to list</button></div>
+        </div>
         `;
         count++;
       });
