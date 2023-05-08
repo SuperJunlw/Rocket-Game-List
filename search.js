@@ -8,6 +8,7 @@ function getInfos() {
     .then(data => {
       let html = "";
       data.results.forEach(game => {
+        console.log(game.id);
         console.log(game.name);
         let genres = "";
         if (game.genres.length === 0) {
@@ -38,24 +39,31 @@ function getInfos() {
     .catch(error => console.error(error));
 }
 
-function addToList(gameID){
-  fetch(`https://rawg.io/api/games?search=${gameID}&key=df331e96509e4da4b3a9d7e6f4f94818`)
-  .then(respond=>{return respond.json();})
-    .then(game => {
-        let genres = "";
-        for (let i = 0; i < game.genres.length; i++) {
-          genres += game.genres[i]['name'];
-          genres += "/";
-        }
+function addToList(gameId) {
+   // Create a new XMLHttpRequest object
+   const xhr = new XMLHttpRequest();
 
-        let gameInfo = {
-          name: game.name,
-          genre: genres,
-          image: game.background_image,
-          release: game.released,
-        };
-            
-    })
-    .catch(error => console.error(error));
+   // Set up the request
+   xhr.open('POST', 'search.php', true);
+   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+   // Set up the onload callback
+   xhr.onload = function() {
+       if (xhr.status === 200) {
+           // Request successful, handle the response here if needed
+           console.log(xhr.responseText);
+       } else {
+           // Request failed
+           console.error('Error:', xhr.status);
+       }
+   };
+
+   // Set up the data to be sent
+   const data = 'gameId=' + gameId + '&addToList=1';
+
+   // Send the request
+   xhr.send(data);
 }
+
+
 
