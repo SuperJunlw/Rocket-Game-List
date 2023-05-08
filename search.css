@@ -9,9 +9,6 @@ body {
     background-size: cover;
 }
 
-
-
-
 nav{
   background: aquamarine;
   height: 80px;
@@ -215,4 +212,33 @@ input[type=checkbox] {
 
 .card1{
   background-image: url(./placeholder.jpg);
+}
+
+
+/* css for messages */
+
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeOut 2s ease-in-out;
+  z-index: 999;
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  90% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
 }

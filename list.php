@@ -87,27 +87,28 @@ $dbpassword = "WhVL##77JK";
 // Step 3: Fetch rows and display as cards
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        // Step 4: Create card template and populate with data
-        echo '<section class="container">';
-        echo '    <div class="card">';
-        echo '        <div class="card-image card1"></div>';
-        echo '        <div class="card-title">';
-        echo '            <h2 id="gameTitle">' . $row["game_name"] . '</h2>';
-        echo '        </div>';
-        echo '        <div id="gameDescription" class="description">';
-        echo '            <p>' . $row["game_description"] . '</p>';
-        echo '        </div>';
-        echo '        <div class="checkbox">';
-        echo '          <input type="checkbox" id="check">';
-        echo '          <label for="checkbox">Completed?</label>';
-        echo '        </div>';
-        echo '        <div class="ButtonForm">';
-        echo '            <form action="#" method="post">';
-        echo '                <button>Remove from List</button>';
-        echo '            </form>';
-        echo '        </div>';
-        echo '    </div>';
-        echo '</section>';
+      //display the cards
+      echo <<<HTML
+    <div class="card">
+        <div class="card-image card1"></div>
+        <div class="card-title">
+            <h2>{$row['game_name']}</h2>
+        </div>
+        <div class="description">
+            <p>{$row['game_description']}</p>
+        </div>
+        <div class="checkbox">
+          <input type = "checkbox" id = "check">
+          <label for="checkbox">Completed?</label>
+        </div>
+        <div class="ButtonForm">
+            <form action="#" method="post">
+                <input type="hidden" name="gameId" value="{$row['game_id']}">
+                <button type="submit" name="removeFromList">Remove From List</button>
+            </form>
+        </div>
+    </div>
+HTML;
     }
 } else {
     echo "No rows found.";

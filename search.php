@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['user_name'];
+//echo $_SESSION['user_name'];
 
 // Step 1: Establish database connection
 $servername = "cos-cs106.science.sjsu.edu";
@@ -36,10 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
     // Execute the statement
     if ($stmt->execute()) {
         // Successful insertion
-        echo "Game added to the list.";
+        echo '<script> showMessage("Game added to the list.", 2000); </script>';
     } else {
         // Failed insertion
-        echo "Error adding game to the list: " . $stmt->error;
+        echo '<script> showMessage("Error adding game to the list: " . $stmt->error, 2000); </script>';
     }
 
     // Close the statement
@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <link rel="stylesheet" href="search.css" />
+    <script src="message.js"></script>
   </head>
   <body>
     
@@ -106,9 +107,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
   // Retrieve form data
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       // Retrieve the search keyword from the form submission
-      $searchKeyword = $_POST['searchKeyword'];
 
-      // Create SQL query
+
+      if (isset($_POST['searchKeyword'])) {
+        // Retrieve the search keyword from the form submission
+        $searchKeyword = $_POST['searchKeyword'];
+
+           // Create SQL query
       $sql = "SELECT * FROM rocketdb.GAME WHERE game_name LIKE CONCAT('%', ?, '%')";
 
       // Prepare SQL query
@@ -126,25 +131,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
 
       while ($row = $result->fetch_assoc()) {
           // Display the information for each search result as a card
-          echo '<div class="card">';
-          echo '    <div class="card-image card1"></div>';
-          echo '    <div class="card-title">';
-          echo '        <h2>' . $row['game_name'] . '</h2>';
-          echo '    </div>';
-          echo '    <div class="description">';
-          echo '        <p>' . $row['game_description'] . '</p>';
-          echo '    </div>';
-          echo '    <div class="ButtonForm">';
-          echo '        <form action="#" method="post">';
-          echo '            <input type="hidden" name="gameId" value="' . $row['game_id'] . '">';
-          echo '            <button type="submit" name="addToList">Add to List</button>';
-          echo '        </form>';
-          echo '    </div>';
-          echo '</div>';
+          echo <<<HTML
+          <div class="card">
+              <div class="card-image card1"></div>
+              <div class="card-title">
+                  <h2>{$row['game_name']}</h2>
+              </div>
+              <div class="description">
+                  <p>{$row['game_description']}</p>
+              </div>
+              <div class="ButtonForm">
+                  <form action="#" method="post">
+                      <input type="hidden" name="gameId" value="{$row['game_id']}">
+                      <button type="submit" name="addToList">Add to List</button>
+                  </form>
+              </div>
+          </div>
+      HTML;
       }
+    } 
+
+    else{
+       // Handle the case when searchKeyword is not set
+       echo 'showMessage("Please enter a search keyword.", 2000);';
+    }
+
+
+
+   
+
+   
 
       // Close the statement
       mysqli_stmt_close($stmt);
+      $conn->close();
   }
 
   ?>
