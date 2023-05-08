@@ -69,7 +69,7 @@ $dbpassword = "WhVL##77JK";
 
 
     // Create SQL query
-    $sql = "SELECT * FROM rocketdb.GAME_LIST natural join rocketdb.GAME where GAME_LIST.user = ?;";
+    $sql = "SELECT * FROM rocketdb.GAME_LIST where GAME_LIST.user = ?;";
 
 // Prepare SQL query
     $stmt = mysqli_prepare($conn, $sql);
@@ -82,33 +82,36 @@ $dbpassword = "WhVL##77JK";
 
 // Get results
     $result = mysqli_stmt_get_result($stmt);
-    $userinfo = mysqli_fetch_assoc($result);
 
 // Step 3: Fetch rows and display as cards
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       //display the cards
-      echo <<<HTML
-    <div class="card">
-        <div class="card-image card1"></div>
-        <div class="card-title">
-            <h2>{$row['game_name']}</h2>
-        </div>
-        <div class="description">
-            <p>{$row['game_description']}</p>
-        </div>
-        <div class="checkbox">
-          <input type = "checkbox" id = "check">
-          <label for="checkbox">Completed?</label>
-        </div>
-        <div class="ButtonForm">
-            <form action="#" method="post">
-                <input type="hidden" name="gameId" value="{$row['game_id']}">
-                <button type="submit" name="removeFromList">Remove From List</button>
-            </form>
-        </div>
-    </div>
-HTML;
+        // Get game information from RAWG API based on game_id
+        $gameId = $row['game_id'];
+        $apiUrl = "https://api.rawg.io/api/games/$gameId?&key=df331e96509e4da4b3a9d7e6f4f94818";
+        $apiResponse = file_get_contents($apiUrl);
+        $gameData = json_decode($apiResponse, true);
+
+        // Extract relevant information from the gameData
+        $imageUrl = $gameData['background_image'];
+        $gameName = $gameData['name'];
+        $genres = "";
+        foreach ($gameData['genres'] as $genre) {
+            $genres .= $genre['name'] . "/";
+        }
+        $genres = rtrim($genres, "/"); // Remove trailing slash
+        $releaseDate = $gameData['released'];
+
+        // Generate HTML code for the card
+        echo '
+            <div class="card">
+                <div class="card-image"><img src="' . $imageUrl . '"></div>
+                <div class="card-title"><h2>' . $gameName . '</h2></div>
+                <div class="genre"><p>Genre: ' . $genres . '</p></div>
+                <div class="release-date"><p>Release Date: ' . $releaseDate . '</p></div>
+            </div>
+        ';
     }
 } else {
     echo "No rows found.";

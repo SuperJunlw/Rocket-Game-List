@@ -185,6 +185,65 @@ input[id="checkbox_toggle"] {
 }
 
 
+/* css for card */
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20%; /* Adjust the value as needed */
+}
+
+.card {
+  background: white;
+  width: 270px;
+  margin: 10px;
+  border-radius: 15px;
+  overflow: hidden; /* Add this line to hide any overflow */
+}
+
+.card-image {
+  height: 150px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Add this line to hide any overflow */
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card p{
+  padding: 10px;
+}
+.card h2{
+  padding: 10px;
+}
+.ButtonForm button{
+  width: 150px;
+  margin-left: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  outline: 0;
+     
+}
+
+.ButtonForm button:hover{
+  background-color: aquamarine;
+  color:black;
+  transition: 1s;
+}
+
 .card:hover{
   background-color: rgb(63, 63, 63);
   color: white;
@@ -197,4 +256,10 @@ input[id="checkbox_toggle"] {
 
 .card1{
   background-image: url(./placeholder.jpg);
+}
+
+.card-image img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
 }
