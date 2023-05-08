@@ -1,6 +1,6 @@
 <?php
 session_start();
-//echo $_SESSION['user_name'];
+echo $_SESSION['user_name'];
 
 // Step 1: Establish database connection
 $servername = "cos-cs106.science.sjsu.edu";
@@ -71,14 +71,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
                   ?>
                   <li><a href="search.php">Search</a></li>
                   <li><a href="list.php">List</a></li>
-                  <li><a href="#">Logout</a></li>
+                  <li><a href="logout.php">Logout</a></li>
                   <?php
              
             } else {
               // User is not logged in, display default navigation items
               ?>
               <li><a href="#">Search</a></li>
-              <li><a href="#">List</a></li>
+              <li><a href="list.php">List</a></li>
               <li><a href="#">Login</a></li>
               <li><a href="#">Sign Up</a></li>
               <?php
