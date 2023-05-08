@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <!-- <script type = "text/javascript" src="search.js"></script> -->
+    <!-- <link rel="stylesheet" href="search.css" /> -->
+  </head>
+  <body>
+
+    <!--NAV BAR HELP: https://www.youtube.com/watch?v=oLgtucwjVII -->
+    <nav>
+        <div class="logo">Rocket Game List</label>
+        <ul class= "nav-links">
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <div class = "menu">
+            <ul>
+              <li><a href="#">Search</a></li>
+              <li><a href="#">List</a></li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+        </ul>
+    </nav>
+
+    <div class = "searchBar">
+      <form action="search.html" method="post" class="search">
+        <label for="searchgame"></label>
+        <input type="text" placeholder="Search.." id="searchgame" name="searchgame">
+        <button type="submit" id="search-button" name="search-button" >Search</button>
+      </form>     
+    </div>
+
+    <script type = "text/javascript" src="search.js">
+      const searchButton = document.getElementById("search-button");
+      searchButton.addEventListener("click", event => {
+        event.preventDefault();
+        getInfos();
+      });
+    </script>
+
+    <section id="container" class="container">
+      <!-- <div id="DisplayResults"></div> -->
+    </section>
+  </body>
+</html>

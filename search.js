@@ -1,16 +1,15 @@
 //const API_KEY = "df331e96509e4da4b3a9d7e6f4f94818";
 
 function getInfos(name) {
-    //const slug = document.getElementById("searchgame").value;
+    const slug = document.getElementById("searchgame").value;
 
     fetch(`https://rawg.io/api/games?search=${name}&key=df331e96509e4da4b3a9d7e6f4f94818`)
     .then(respond=>{return respond.json();})
     .then(data => {
       let html = "";
-      data.results.forEach(game => {
+      data.results.foreach(game => {
         console.log(game.name);
         console.log(game.description);
-        console.log(game.background_image);
         html += `
           <div class="card">
             <div class="card-image"><img src="${game.background_image}"></div>
@@ -68,3 +67,4 @@ function getInfos(name) {
     })
     .catch(error => console.error(error));
 }
+
