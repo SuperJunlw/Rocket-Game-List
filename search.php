@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['user_name'];
+//echo $_SESSION['user_name'];
 
 // Step 1: Establish database connection
 $servername = "cos-cs106.science.sjsu.edu";
