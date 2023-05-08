@@ -94,12 +94,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
   <h1>Search</h1>
 </div>
 
-<div class="searchBar">
-  <form method="post">
-    <input type="text" name="searchKeyword" placeholder="Search your game">
-    <button type="submit">Search</button>
-  </form>
-</div>
+
+<div class = "searchBar">
+      <form action="search.html" method="post" class="search">
+        <label for="searchgame"></label>
+        <input type="text" placeholder="Search.." id="searchgame" name="searchgame">
+        <button type="submit" id="search-button" name="search-button">Search</button>
+      </form>     
+    </div>
+
+    <script>
+      const searchButton = document.getElementById("search-button");
+      searchButton.addEventListener("click", event => {
+        event.preventDefault();
+        getInfos();
+      });
+    </script>
 
 <!--CARD HELP: https://www.youtube.com/watch?v=qXRYMdvq_Dc -->
 <section class="container">
