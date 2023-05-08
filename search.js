@@ -3,7 +3,7 @@
 function getInfos() {
     const slug = document.getElementById("searchgame").value;
 
-    fetch(`https://rawg.io/api/games?search=${slug}&key=df331e96509e4da4b3a9d7e6f4f94818`)
+    fetch(`https://rawg.io/api/games?search=${slug}&page_size=8&ordering=-popularity&key=df331e96509e4da4b3a9d7e6f4f94818`)
     .then(respond=>{return respond.json();})
     .then(data => {
       let html = "";
