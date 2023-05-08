@@ -132,22 +132,45 @@ input[type=checkbox] {
     color: #fff;
     margin: auto;
     margin-top: 100px;
-    
-    
-    
-
 }
 
 .searchBar input {
-    
+    display: flex;
     font-size: 15px;
     width: 100%;
     padding: 15px 15px;
     border: 0;
     outline: none;
-    border-radius: 5px;
-    text-align: center;
     
+   
+}
+
+#searchForm{
+  display: flex;
+  
+}
+
+#searchgame{
+  flex: 1;
+  border: none;
+  outline: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+#search-button{
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  background-color: rgb(214, 213, 213);
+  color: black;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#search-button:hover{
+  background-color: aquamarine;
+  color: black;
+  transition: .5s;
 }
 
 .container {
