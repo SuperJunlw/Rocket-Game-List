@@ -3,23 +3,23 @@
 function getInfos() {
     const slug = document.getElementById("searchgame").value;
 
-    fetch(`https://rawg.io/api/games?search=${slug}&key=df331e96509e4da4b3a9d7e6f4f94818`)
+    fetch(`https://rawg.io/api/games?search=${slug}&page_size=8&ordering=-popularity&key=df331e96509e4da4b3a9d7e6f4f94818`)
     .then(respond=>{return respond.json();})
     .then(data => {
       let html = "";
       let count = 0;
       data.results.forEach(game => {
-
-        //limit the result to 8 games
-        if(count >= 8){
-          return;
-        }
-
+        console.log(game.id);
         console.log(game.name);
         let genres = "";
+        if (game.genres.length === 0) {
+            genres = "General";
+        }
         for (let i = 0; i < game.genres.length; i++) {
           genres += game.genres[i]['name'];
-          genres += "/";
+          if (i !== game.genres.length - 1) {
+            genres += "/";
+          }
         }
         console.log(genres);
         console.log(game.released);
@@ -28,8 +28,7 @@ function getInfos() {
           <div class="card">
             <div class="card-image"><img src="${game.background_image}"></div>
             <div class="card-title"><h2>${game.name}</h2></div>
-            <div class = "description"><p>${genres}</p></div>
-            <div class = "description"><p>Release Date: ${game.released}</p></div>
+            <div class = "description"><p>Description: ${game.description}</p></div>
             <div class="ButtonForm" onclick="addToList(${game.id})"><button>Add to list</button></div>
           </div>
         `;
@@ -42,24 +41,31 @@ function getInfos() {
     .catch(error => console.error(error));
 }
 
-function addToList(gameID){
-  fetch(`https://rawg.io/api/games?search=${gameID}&key=df331e96509e4da4b3a9d7e6f4f94818`)
-  .then(respond=>{return respond.json();})
-    .then(game => {
-        let genres = "";
-        for (let i = 0; i < game.genres.length; i++) {
-          genres += game.genres[i]['name'];
-          genres += "/";
-        }
+function addToList(gameId) {
+   // Create a new XMLHttpRequest object
+   const xhr = new XMLHttpRequest();
 
-        let gameInfo = {
-          name: game.name,
-          genre: genres,
-          image: game.background_image,
-          release: game.released,
-        };
-            
-    })
-    .catch(error => console.error(error));
+   // Set up the request
+   xhr.open('POST', 'search.php', true);
+   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+   // Set up the onload callback
+   xhr.onload = function() {
+       if (xhr.status === 200) {
+           // Request successful, handle the response here if needed
+           console.log(xhr.responseText);
+       } else {
+           // Request failed
+           console.error('Error:', xhr.status);
+       }
+   };
+
+   // Set up the data to be sent
+   const data = 'gameId=' + gameId + '&addToList=1';
+
+   // Send the request
+   xhr.send(data);
 }
+
+
 
