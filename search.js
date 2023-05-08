@@ -7,7 +7,14 @@ function getInfos() {
     .then(respond=>{return respond.json();})
     .then(data => {
       let html = "";
+      let count = 0;
       data.results.forEach(game => {
+
+        //limit the result to 8 games
+        if(count >= 8){
+          return;
+        }
+
         console.log(game.name);
         let genres = "";
         for (let i = 0; i < game.genres.length; i++) {
@@ -16,14 +23,17 @@ function getInfos() {
         }
         console.log(genres);
         console.log(game.released);
+
         html += `
           <div class="card">
             <div class="card-image"><img src="${game.background_image}"></div>
             <div class="card-title"><h2>${game.name}</h2></div>
-            <div class = "description"><p>Description: ${game.description}</p></div>
+            <div class = "description"><p>${genres}</p></div>
+            <div class = "description"><p>Release Date: ${game.released}</p></div>
             <div class="ButtonForm" onclick="addToList(${game.id})"><button>Add to list</button></div>
           </div>
         `;
+        count++;
       });
 
       document.getElementById("container").innerHTML = html;
