@@ -1,11 +1,11 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Trebuchet MS';
+    font-family: 'Segoe UI';
 }
 
 body {
-    background: url(./background.jpeg) no-repeat;
+    background: url(./background.png) no-repeat;
     background-size: cover;
 }
 
@@ -13,7 +13,7 @@ body {
 
 
 nav{
-  background: aquamarine;
+  background: rgb(245, 249, 248);
   height: 80px;
   width: 100%;
   }
