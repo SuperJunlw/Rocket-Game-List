@@ -84,7 +84,7 @@ input[id="checkbox_toggle"] {
   .menu {
   display:none;
   position: absolute;
-  background-color: aquamarine;
+  background-color: rgb(245, 249, 248);
   right: 0;
   left: 0;
   }
