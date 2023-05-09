@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Trebuchet MS';
+}
+
+body {
+    background: url(./background.jpeg) ;
+    background-size: cover;
+}
+
+nav{
+  background: aquamarine;
+  height: 80px;
+  width: 100%;
+  }
+.logo{
+    color: black;
+    font-size: 30px;
+    line-height: 80px;
+    padding: 0 25px;
+    font-weight: bold;
+  }
+nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+nav ul li a{
+    color: black;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+#logout{
+    display: none;
+    background-color: #fff;
+    color: black;
+    font-size: 17px;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    outline: 0;
+  }
+
+  #logout:hover{
+    background-color: black;
+    color:#fff;
+    transition: 0.3s;
+
+  }
+a.active,a:hover{
+    background: black;
+    color: #fff;
+    transition: .5s;
+}
+input[type=checkbox] {
+    display: none;
+    } 
+    
+/* HAMBURGER MENU */
+.hamburger {
+    display: none;
+    font-size: 36px;
+    user-select: none;
+    }
+  
+    
+  
+    /* APPLYING MEDIA QUERIES */
+  @media (max-width: 790px) {
+    .menu {
+    display:none;
+    position: absolute;
+    background-color:aquamarine;
+    right: 0;
+    left: 0;
+    
+    }
+   
+    
+    .menu li:hover {
+    display: inline-block;
+    transition: 0.3s ease;
+    }
+    
+    .menu li + li {
+    margin-top: 12px;
+    }
+    
+    input[type=checkbox]:checked ~ .menu {
+    display: block;
+    }
+    
+    .hamburger {
+    display: block;
+    
+    }
+  
+    .hamburger:hover{
+      color: #fff;
+    }
+  
+    
+  }
+  
+  .title{
+    width: 100%;
+    color: #fff;
+    font-size: 25;
+    text-align: center;
+    display: block;
+    padding-top: 50px;
+    margin-top: 45px;
+  
+  }
+
+  .Description{
+    margin-top: 5%;
+    vertical-align: auto;
+    text-align: center;
+    padding-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .text{
+    color: #fff;
+    font-size: 30;
+  }
+
+  .homeButton {
+    transition-duration: 0.4s;
+    background-color: #fff;
+    color: black;
+    font-size: 15px;
+    width: 10%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    outline: 0;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 125px
+    
+}
+
+.homeButton:hover{
+    background-color: aquamarine;
+    
+}
+
+  @keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
