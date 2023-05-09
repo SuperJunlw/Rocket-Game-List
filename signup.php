@@ -63,6 +63,7 @@ if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
                 $res = mysqli_query($conn, $selectSql);
                 $userinfo = mysqli_fetch_assoc($res);
 
+                session_start();
                 $_SESSION['user_name'] = $userinfo['user_name'];
                 $_SESSION['logged_in'] = true;
 
