@@ -70,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
               if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                   // User is logged in, display logged-in navigation items
                   ?>
-                  <li><a href="home.php">Home</a></li>
                   <li><a href="search.php">Search</a></li>
                   <li><a href="list.php">List</a></li>
                   <li><a href="logout.php">Logout</a></li>

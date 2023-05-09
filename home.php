@@ -24,7 +24,6 @@ session_start();
               if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                   // User is logged in, display logged-in navigation items
                   ?>
-                  <li><a href="home.php">Home</a></li>
                   <li><a href="search.php">Search</a></li>
                   <li><a href="list.php">List</a></li>
                   <li><a href="logout.php">Logout</a></li>
@@ -48,7 +47,7 @@ session_start();
 
 <div class="Description">
     <p class="text">Rocket Game List is a video game record-keeping web application for gamers to search for game info, save a video game list, and keep track of the various games they play</p>
-    <button class="homeButton">Login to get start!</button>
+    <a href="login.html" class="homeButton">Login to get start!</a>
 </div>
 
 
