@@ -252,7 +252,31 @@ input[id="checkbox_toggle"] {
   cursor:default;
 }
 
+#complete-button{
+  width: 200px;
+  margin-left: 35px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
+.complete{
+  text-align: center;
+}
+
+#complete{
+  display: none;
+  color: white;
+  background: green;
+  border-radius:0 0 15px 15px;
+}
+
+#incomplete{
+  color: white;
+  background: red;
+  border-radius:0 0 15px 15px;
+  
+}
 
 .card1{
   background-image: url(./placeholder.jpg);
