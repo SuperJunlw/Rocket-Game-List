@@ -19,23 +19,26 @@ session_start();
           <label for="checkbox_toggle" class="hamburger">&#9776;</label>
           <div class="menu">
             <ul>
-              <?php
+            <?php
               if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                   // User is logged in, display logged-in navigation items
                   ?>
+                  <li><a href="home.php">Home</a></li>
                   <li><a href="search.php">Search</a></li>
                   <li><a href="list.php">List</a></li>
                   <li><a href="logout.php">Logout</a></li>
                   <?php
-              } else {
-                  // User is not logged in, display default navigation items
-                  ?>
-                  <li><a href="search.php">Search</a></li>
-                  <li><a href="#">List</a></li>
-                  <li><a href="#">Login</a></li>
-                  <li><a href="#">Sign Up</a></li>
-                  <?php
-              }
+             
+            } else {
+              // User is not logged in, display default navigation items
+              ?>
+              <li><a href="home.php">Home</a></li>
+              <li><a href="search.php">Search</a></li>
+              <li><a href="list.php">List</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
+              <?php
+          }
               ?>
             </ul>
           </div>

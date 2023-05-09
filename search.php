@@ -18,33 +18,33 @@ if ($conn->connect_error) {
 
 // Check if the "Add to List" button is clicked
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
-    // Retrieve the game ID from the form submission
-    $gameId = $_POST['gameId'];
+      // Retrieve the game ID from the form submission
+      $gameId = $_POST['gameId'];
 
-    // Get the logged-in user ID from the session (assuming you have implemented user authentication)
-    $userId = $_SESSION['user_name'];
+      // Get the logged-in user ID from the session (assuming you have implemented user authentication)
+      $userId = $_SESSION['user_name'];
 
-    // Prepare the SQL statement to insert into the game list
-    $sql = "INSERT INTO rocketdb.GAME_LIST (game_id, user) VALUES (?, ?)";
+      // Prepare the SQL statement to insert into the game list
+      $sql = "INSERT INTO rocketdb.GAME_LIST (game_id, user) VALUES (?, ?)";
 
-    // Prepare the statement
-    $stmt = $conn->prepare($sql);
+      // Prepare the statement
+      $stmt = $conn->prepare($sql);
 
-    // Bind parameters to the prepared statement
-    $stmt->bind_param("is", $gameId, $userId);
+      // Bind parameters to the prepared statement
+      $stmt->bind_param("is", $gameId, $userId);
 
-    // Execute the statement
-    if ($stmt->execute()) {
-        // Successful insertion
-        echo 'Game added to list.';
-    } else {
-        // Failed insertion
-        echo 'Game added to list.';
-    }
+      // Execute the statement
+      if ($stmt->execute()) {
+          // Successful insertion
+          echo 'Game added to list.';
+      } else {
+          // Failed insertion
+          echo 'Game added to list.';
+      }
 
-    // Close the statement
-    $stmt->close();
-    exit;
+      // Close the statement
+      $stmt->close();
+      exit;
 }
 ?>
 
@@ -66,10 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
           <label for="checkbox_toggle" class="hamburger">&#9776;</label>
           <div class="menu">
             <ul>
-              <?php
+            <?php
               if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
                   // User is logged in, display logged-in navigation items
                   ?>
+                  <li><a href="home.php">Home</a></li>
                   <li><a href="search.php">Search</a></li>
                   <li><a href="list.php">List</a></li>
                   <li><a href="logout.php">Logout</a></li>
@@ -78,10 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
             } else {
               // User is not logged in, display default navigation items
               ?>
-              <li><a href="#">Search</a></li>
+              <li><a href="home.php">Home</a></li>
+              <li><a href="search.php">Search</a></li>
               <li><a href="list.php">List</a></li>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Sign Up</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
               <?php
           }
           ?>
