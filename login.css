@@ -166,3 +166,7 @@ input[type=checkbox] {
     background-color: aquamarine;
     
 }
+
+.formText{
+  text-align: center;
+}

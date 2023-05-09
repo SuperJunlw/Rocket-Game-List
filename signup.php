@@ -46,7 +46,11 @@ if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
 
         //check if user account already exist
         if (mysqli_num_rows($result) >= 1) {
-            echo "User account already exist. Please login instead.";
+            ?>
+            <p style="color:white;">User account already exist. Please login instead.</p>
+            <?php
+            mysqli_stmt_close($checkSql);
+            mysqli_close($conn);
         } 
         //if not, insert the new user info to the db
         else {
@@ -54,15 +58,24 @@ if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
             VALUES ('$user', '$password', '$email')";
 
             if (mysqli_query($conn, $insertSql)) {
-                echo "You have sign up successfully!";
+
+                $selectSql = "SELECT * FROM rocketdb.USER WHERE user_name = '$user' AND user_password = '$password'";
+                $res = mysqli_query($conn, $selectSql);
+                $userinfo = mysqli_fetch_assoc($res);
+
+                $_SESSION['user_name'] = $userinfo['user_name'];
+                $_SESSION['logged_in'] = true;
+
+                mysqli_stmt_close($checkSql);
+                mysqli_close($conn);
+                header("Location: list.php");
             } 
             else {
-                echo "Error: " . $insertSql . "<br>" . mysqli_error($conn);
+                echo "Error";
+                mysqli_stmt_close($checkSql);
+                mysqli_close($conn);
             }
         }
-
-        mysqli_stmt_close($checkSql);
-        mysqli_close($conn);
     }
     validate_signup();
 ?>
