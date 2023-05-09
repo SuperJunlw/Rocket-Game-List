@@ -98,9 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
 
 
         <div class="searchBar">
-          <form action="search.php" method="post" class="search" id="searchform">
+          <form action="" method="post" class="search" id="searchform">
             <label for="searchgame"></label>
-            <input type="text" placeholder="Search.." id="searchgame" name="searchgame">
+            <input required type="text" placeholder="Search.." id="searchgame" name="searchgame">
             <button type="button" id="search-button">Search</button>
           </form>
         </div>
@@ -108,6 +108,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
 
         <script>
           const searchButton = document.getElementById("search-button");
+          const input = document.getElementById("searchgame");
+          const searchForm = document.getElementById("searchform");
+
+          input.addEventListener("keyup", function(event) {
+            if (event.key === "Enter")
+            {
+              event.preventDefault();
+              searchButton.click();
+            }
+          });
+
+          
+          searchForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            getInfos();
+          });
+          
+
           searchButton.addEventListener("click", event => {
           event.preventDefault();
           getInfos();

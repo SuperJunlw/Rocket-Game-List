@@ -97,6 +97,9 @@ if ($result->num_rows > 0) {
         $imageUrl = $gameData['background_image'];
         $gameName = $gameData['name'];
         $genres = "";
+        if (empty($genres)) {
+          $genres = "General";
+        } //if there is no genre listed
         foreach ($gameData['genres'] as $genre) {
             $genres .= $genre['name'] . "/";
         }
