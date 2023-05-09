@@ -1,13 +1,51 @@
-<?php
+<html>
+  <head>
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="./signup.css" />
+  </head>
+  <body>
 
-//use this to test if you have mysqli enabled as a extension on your php.ini file.
+    <!--NAV BAR HELP: https://www.youtube.com/watch?v=oLgtucwjVII -->
+    <nav>
+        
 
-if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
-    echo 'We don\'t have mysqli!!!';
-} else {
-    echo 'Phew we have it!';
-}
+      <div class="logo">Rocket Game List</label>
+      <ul class= "nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+      
+        <div class = "menu">
+          <ul>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="search.php">Search</a></li>
+            <li><a href="list.php">List</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="signup.php">Sign Up</a></li>
+            <button id="logout">LOGOUT</button>
+          </ul>
+        </div>
+      </ul>
+    </nav>
+    
+    <div class = "SignUpForm">
+        <h1>Sign Up</h1>
+            <form action = './signup.php' method="post">
+                <p>Email Address:</p>
+                <input type = "text" name = "email" placeholder="Email Address">
+                <p>Username:</p>
+                <input type = "text" name = "user" placeholder="Username">
+                <p>Password:</p>
+                <input type = "password" name = "password" placeholder="Password">
+                <p></p>
+                <button type="submit">Sign Up</button>
+            </form>
+    </div>
 
+    <?php
+
+    if(!empty($_POST)){
+        validate_signup();
+    }
 
     function validate_signup()
     {
@@ -34,10 +72,10 @@ if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
         }
 
         //prepare statement
-        $checkSql = mysqli_prepare($conn, "SELECT * FROM rocketdb.USER WHERE user_name = ? AND user_password = ?");
+        $checkSql = mysqli_prepare($conn, "SELECT * FROM rocketdb.USER WHERE user_name = ? OR email = ?");
 
         // Bind parameters to prepared statement
-        mysqli_stmt_bind_param($checkSql, "ss", $user, $password);
+        mysqli_stmt_bind_param($checkSql, "ss", $user, $email);
 
         // Execute prepared statement
         mysqli_stmt_execute($checkSql);
@@ -47,7 +85,7 @@ if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
         //check if user account already exist
         if (mysqli_num_rows($result) >= 1) {
             ?>
-            <p style="color:white;">User account already exist. Please login instead.</p>
+            <div class="errorMsg"><p style="color:red;">Username or email already used. Please use another username or email</p></div>
             <?php
             mysqli_stmt_close($checkSql);
             mysqli_close($conn);
@@ -72,11 +110,15 @@ if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
                 header("Location: list.php");
             } 
             else {
-                echo "Error";
+                ?>
+                <div class="errorMsg"><p style="color:red;">Error on creating account. Please try again later</p></div>
+                <?php
                 mysqli_stmt_close($checkSql);
                 mysqli_close($conn);
             }
         }
     }
-    validate_signup();
 ?>
+    
+  </body>
+</html>
