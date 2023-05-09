@@ -115,6 +115,16 @@ if ($result->num_rows > 0) {
                 <div class="card-title"><h2>' . $gameName . '</h2></div>
                 <div class="genre"><p>Genre: ' . $genres . '</p></div>
                 <div class="release-date"><p>Release Date: ' . $releaseDate . '</p></div>
+                <div class="ButtonForm">
+                    <form action = "#" method="post">
+                        <button>Remove from List</button>
+                        <button id="complete-button">Change Completion Status</button>
+                    </form>
+                </div>
+                <div class="complete">
+                    <p id = "complete">COMPLETE</p>
+                    <p id = "incomplete">INCOMPLETE</p>
+                </div>
             </div>
         ';
     }
