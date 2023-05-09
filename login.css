@@ -170,3 +170,12 @@ input[type=checkbox] {
 .formText{
   text-align: center;
 }
+
+.errorMsg{
+  width: auto;
+  text-align: center;
+  left: 40%;
+  top: 85%;
+  position:absolute;
+  font-size: 25px;
+}

@@ -1,5 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    
+    <!--NAV BAR HELP: https://www.youtube.com/watch?v=oLgtucwjVII -->
+    <nav>
+        
+        <div class="logo">Rocket Game List</label>
+        <ul class= "nav-links">
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        
+          <div class = "menu">
+            <ul>
+              <li><a href="home.php">Home</a></li>
+              <li><a href="search.php">Search</a></li>
+              <li><a href="list.php">List</a></li>
+              <li><a href="login.php">Login</a></li>
+              <li><a href="signup.php">Sign Up</a></li>
+              <button id="logout">LOGOUT</button>
+            </ul>
+          </div>
+        </ul>
+    </nav>
+
+    <div class = "LoginForm">
+        <h1>Login In</h1>
+            <form action = "./login.php" method="post">
+                <p> Username: </p>
+                <input type = "text" name = "user" placeholder="Username">
+                <p> Password: </p>
+                <input type = "password" name = "password" placeholder="Password">
+                <p></p>
+                <button type="submit">Login</button>
+                <p class="formText"> Need an account? Sign Up Here</p>
+            </form>
+    </div>
 
 <?php
+
+if (!empty($_POST)){
+    validate_login();
+}
 
 function validate_login()
 {
@@ -47,7 +93,9 @@ function validate_login()
 
         // Check for empty result set
         if (mysqli_num_rows($result) == 0) {
-            echo "Invalid username or password.";
+            ?>
+                <div class="errorMsg"><p style="color:red;">Invalid username or password</p></div>
+            <?php
             mysqli_stmt_close($stmt);
             mysqli_close($conn);
         } else {
@@ -65,15 +113,7 @@ function validate_login()
             
             exit;
         }
-    
-
-
-
-
-
-
 }
-
-validate_login();
-
 ?>
+  </body>
+</html>

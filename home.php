@@ -35,8 +35,8 @@ session_start();
               <li><a href="home.php">Home</a></li>
               <li><a href="search.html">Search</a></li>
               <li><a href="list.php">List</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="login.php">Login</a></li>
+              <li><a href="signup.php">Sign Up</a></li>
               <?php
           }
           ?>
@@ -46,8 +46,8 @@ session_start();
 </nav>
 
 <div class="Description">
-    <p class="text">Rocket Game List is a video game record-keeping web application for gamers to search for game information, save a video game list, and keep track of the various games they play.</p>
-    <a href="login.html" class="homeButton">Login or Sign Up to get started!</a>
+    <p class="text">Rocket Game List is a video game record-keeping web application for gamers to search for game information, save a video game list, and keep track of the played games.</p>
+    <a href="login.php" class="homeButton">Login or Sign Up to get started!</a>
 </div>
 
 

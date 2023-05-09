@@ -81,8 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
               <li><a href="home.php">Home</a></li>
               <li><a href="search.php">Search</a></li>
               <li><a href="list.php">List</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="login.php">Login</a></li>
+              <li><a href="signup.php">Sign Up</a></li>
               <?php
           }
           ?>

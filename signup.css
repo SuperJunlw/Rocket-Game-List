@@ -168,3 +168,12 @@ input[type=checkbox] {
     background-color: aquamarine;
     
 }
+
+.errorMsg{
+  width: auto;
+  text-align: center;
+  left: 30%;
+  top: 90%;
+  position:absolute;
+  font-size: 20px;
+}
