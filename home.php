@@ -46,8 +46,8 @@ session_start();
 </nav>
 
 <div class="Description">
-    <p class="text">Rocket Game List is a video game record-keeping web application for gamers to search for game info, save a video game list, and keep track of the various games they play</p>
-    <a href="login.html" class="homeButton">Login to get start!</a>
+    <p class="text">Rocket Game List is a video game record-keeping web application for gamers to search for game information, save a video game list, and keep track of the various games they play.</p>
+    <a href="login.html" class="homeButton">Login or Sign Up to get started!</a>
 </div>
 
 
