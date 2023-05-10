@@ -179,3 +179,12 @@ input[type=checkbox] {
   position:absolute;
   font-size: 25px;
 }
+
+.emptyerrorMsg{
+  width: auto;
+  text-align: center;
+  left: 41%;
+  top: 85%;
+  position:absolute;
+  font-size: 25px;
+}

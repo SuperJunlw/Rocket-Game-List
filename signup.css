@@ -170,10 +170,19 @@ input[type=checkbox] {
 }
 
 .errorMsg{
-  width: auto;
+  width: 25%;
   text-align: center;
-  left: 30%;
-  top: 90%;
+  left: 38%;
+  top: 88%;
   position:absolute;
   font-size: 20px;
+}
+
+.emptyerrorMsg{
+  width: auto;
+  text-align: center;
+  left: 41%;
+  top: 88%;
+  position:absolute;
+  font-size: 25px;
 }
