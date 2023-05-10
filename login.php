@@ -44,7 +44,14 @@
 <?php
 
 if (!empty($_POST)){
-    validate_login();
+    if(empty($_POST["user"]) || empty($_POST["password"])){
+        ?>
+        <div class="emptyerrorMsg"><p style="color:red;">One or more missing fields</p></div>
+        <?php
+    }
+    else{
+        validate_login();
+    }
 }
 
 function validate_login()

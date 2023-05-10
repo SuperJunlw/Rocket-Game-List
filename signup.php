@@ -43,8 +43,15 @@
 
     <?php
 
-    if(!empty($_POST)){
-        validate_signup();
+    if (!empty($_POST)){
+        if(empty($_POST["email"]) || empty($_POST["user"]) || empty($_POST["password"])){
+            ?>
+            <div class="emptyerrorMsg"><p style="color:red;">One or more missing fields</p></div>
+            <?php
+        }
+        else{
+            validate_signup();
+        }
     }
 
     function validate_signup()
