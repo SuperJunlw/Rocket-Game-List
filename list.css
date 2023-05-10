@@ -148,6 +148,8 @@ input[id="checkbox_toggle"] {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   background: white;
   width: 270px;
   margin: 10px;
@@ -213,6 +215,7 @@ input[id="checkbox_toggle"] {
 }
 
 .complete{
+  margin-top: auto;
   text-align: center;
 }
 
