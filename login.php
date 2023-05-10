@@ -29,7 +29,7 @@
     </nav>
 
     <div class = "LoginForm">
-        <h1>Login In</h1>
+        <h1>Login</h1>
             <form action = "./login.php" method="post">
                 <p> Username: </p>
                 <input type = "text" name = "user" placeholder="Username">
