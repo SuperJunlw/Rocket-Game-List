@@ -220,7 +220,7 @@ input[id="checkbox_toggle"] {
 }
 
 #complete{
-  display: none;
+ 
   color: white;
   background: green;
   border-radius:0 0 15px 15px;
