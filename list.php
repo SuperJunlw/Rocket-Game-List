@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['removeFromList'])) {
               // User is not logged in, display default navigation items
               ?>
               <li><a href="home.php">Home</a></li>
-              <li><a href="search.html">Search</a></li>
+              <li><a href="search.php">Search</a></li>
               <li><a href="list.php">List</a></li>
               <li><a href="login.php">Login</a></li>
               <li><a href="signup.php">Sign Up</a></li>
