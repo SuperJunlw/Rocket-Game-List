@@ -128,6 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
 </nav>
 
         <div class="searchBar">
+        <h2 class="searchText">Enter the name a video game...</h2>
           <form action="" method="post" class="search" id="searchform">
             <label for="searchgame"></label>
             <input required type="text" placeholder="Search.." id="searchgame" name="searchgame">

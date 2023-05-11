@@ -267,6 +267,11 @@ input[type=checkbox] {
   z-index: 999;
 }
 
+.searchText{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 @keyframes fadeOut {
   0% {
       opacity: 1;

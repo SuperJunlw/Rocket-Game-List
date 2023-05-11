@@ -41,7 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['removeFromList'])) {
     // Execute the statement
     if ($stmt->execute()) {
         // Successful Deletion
-        echo '<script> alert("Game removed from the list."); </script>';
+        header("Location: list.php");
+        $stmt->close();
+        exit();
     } else {
         // Failed Deletion
         echo '<script> alert("Error removing game from the list: ' . $stmt->error . '"); </script>';
@@ -49,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['removeFromList'])) {
 
     // Close the statement
     $stmt->close();
-    //header("Location: " . $_SERVER['PHP_SELF']);
     exit();
    
 }
@@ -76,7 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['removeFromList'])) {
     // Execute the statement
     if ($stmt->execute()) {
         // Successful Update
-        echo '<script> alert("Status updated."); </script>';
+        header("Location: list.php");
+        $stmt->close();
+        exit();
     } else {
         // Failed Update
         echo '<script> alert("Error removing game from the list: ' . $stmt->error . '"); </script>';
@@ -84,7 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['removeFromList'])) {
 
     // Close the statement
     $stmt->close();
-    //header("Location: " . $_SERVER['PHP_SELF']);
     exit();
    
 }
