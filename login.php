@@ -37,7 +37,7 @@
                 <input type = "password" name = "password" placeholder="Password">
                 <p></p>
                 <button type="submit">Login</button>
-                <p class="formText"> Need an account? Sign Up Here</p>
+                <p class="formText"> Need an account? Sign Up!</p>
             </form>
     </div>
 
