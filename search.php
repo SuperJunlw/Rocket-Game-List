@@ -18,35 +18,71 @@ if ($conn->connect_error) {
 
 // Check if the "Add to List" button is clicked
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
+  if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true){
+
       // Retrieve the game ID from the form submission
-      $gameId = $_POST['gameId'];
+       $gameId = $_POST['gameId'];
 
       // Get the logged-in user ID from the session (assuming you have implemented user authentication)
       $userId = $_SESSION['user_name'];
+      //prepare statement
+      $checkSql = mysqli_prepare($conn, "SELECT * FROM rocketdb.GAME_LIST WHERE user = ? AND game_id = ?");
 
-      // Prepare the SQL statement to insert into the game list
-      $sql = "INSERT INTO rocketdb.GAME_LIST (game_id, user) VALUES (?, ?)";
+      // Bind parameters to prepared statement
+      mysqli_stmt_bind_param($checkSql, "ss", $userId, $gameId);
 
-      // Prepare the statement
-      $stmt = $conn->prepare($sql);
+      // Execute prepared statement
+      mysqli_stmt_execute($checkSql);
 
-      // Bind parameters to the prepared statement
-      $stmt->bind_param("is", $gameId, $userId);
+      $result = mysqli_stmt_get_result($checkSql);
 
-      // Execute the statement
-      if ($stmt->execute()) {
-          // Successful insertion
-          echo 'Game added to list.';
-      } else {
-          // Failed insertion
-          echo 'Game added to list.';
+      //check if user account already exist
+      if (mysqli_num_rows($result) >= 1) {
+        echo 'This game already in your list';
+        mysqli_stmt_close($checkSql);
+        mysqli_close($conn);
+        exit;
+      } 
+      else{
+
+        // Prepare the SQL statement to insert into the game list
+        $sql = "INSERT INTO rocketdb.GAME_LIST (game_id, user) VALUES (?, ?)";
+
+        // Prepare the statement
+        $stmt = $conn->prepare($sql);
+
+        // Bind parameters to the prepared statement
+        $stmt->bind_param("is", $gameId, $userId);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            // Successful insertion
+            echo 'Game added to the list!';
+            mysqli_close($conn);
+            exit;
+            
+        } else {
+            // Failed insertion
+            echo 'Error adding to the list: ' . $stmt->error . '';
+        }
       }
 
       // Close the statement
       $stmt->close();
+      mysqli_close($conn);
       exit;
-}
-?>
+    }
+    else{
+      
+      echo 'Please login first';
+      
+      mysqli_close($conn);
+      exit;
+    }
+  }
+  mysqli_close($conn);
+
+?> 
 
 <html>
   <head>
@@ -91,13 +127,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
     </ul>
 </nav>
 
-<!--
-<div class="title">
-  <h1>Search</h1>
-</div>
-        -->
-
-
         <div class="searchBar">
           <form action="" method="post" class="search" id="searchform">
             <label for="searchgame"></label>
@@ -139,6 +168,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addToList'])) {
 
 
 </section>
+          <!-- <div class="popup" id="popup">
+            <h1 style="color: green;">
+              Game added to list!
+            </h1>
+            <button type="button" onclick="closePopup()">Close</button>
+          </div> -->
 
 </body>
 </html>

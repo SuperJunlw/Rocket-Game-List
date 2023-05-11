@@ -9,8 +9,7 @@ function getInfos() {
       let html = "";
       let count = 0;
       data.results.forEach(game => {
-        console.log(game.id);
-        console.log(game.name);
+        
         let genres = "";
         if (game.genres.length === 0) {
             genres = "General";
@@ -21,8 +20,6 @@ function getInfos() {
             genres += "/";
           }
         }
-        console.log(genres);
-        console.log(game.released);
 
         html += `
         <div class="card">
@@ -55,6 +52,8 @@ function addToList(gameId) {
        if (xhr.status === 200) {
            // Request successful, handle the response here if needed
            console.log(xhr.responseText);
+           let responseText = xhr.responseText;
+           alert(responseText);
        } else {
            // Request failed
            console.error('Error:', xhr.status);
