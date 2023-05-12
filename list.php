@@ -166,7 +166,7 @@ if ($result->num_rows > 0) {
       //display the cards
         // Get game information from RAWG API based on game_id
         $gameId = $row['game_id'];
-        $apiUrl = "https://api.rawg.io/api/games/$gameId?&key=df331e96509e4da4b3a9d7e6f4f94818";
+        $apiUrl = "https://api.rawg.io/api/games/$gameId?&key=API_KEY";
         $apiResponse = file_get_contents($apiUrl);
         $gameData = json_decode($apiResponse, true);
 
